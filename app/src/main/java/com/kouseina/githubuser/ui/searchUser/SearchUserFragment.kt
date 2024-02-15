@@ -4,14 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kouseina.githubuser.R
+import com.kouseina.githubuser.data.database.SettingPreferences
+import com.kouseina.githubuser.data.database.dataStore
 import com.kouseina.githubuser.data.response.ItemsItem
 import com.kouseina.githubuser.databinding.FragmentSearchUserBinding
+import com.kouseina.githubuser.ui.setting.SettingViewModel
+import com.kouseina.githubuser.ui.setting.SettingViewModelFactory
 
 
 class SearchUserFragment : Fragment() {
@@ -36,17 +43,23 @@ class SearchUserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setTheme()
 
         binding.searchBar.inflateMenu(R.menu.menu)
         binding.searchBar.setOnMenuItemClickListener { menuItem ->
-             when (menuItem.itemId) {
+            val navController = findNavController(requireActivity(), R.id.container)
+
+            when (menuItem.itemId) {
                 R.id.menu_favorite -> {
                     val toFavoriteUserFragment = SearchUserFragmentDirections.actionSearchUserFragmentToFavoriteUserFragment()
-                    val navController = findNavController(requireActivity(), R.id.container)
                     navController.navigate(toFavoriteUserFragment)
+
                     true
                 }
                 R.id.menu_setting -> {
+                    val toSettingFragment = SearchUserFragmentDirections.actionSearchUserFragmentToSettingFragment()
+                    navController.navigate(toSettingFragment)
+
                     true
                 }
                 else -> false
@@ -101,6 +114,19 @@ class SearchUserFragment : Fragment() {
             binding.progressCircular.visibility = View.VISIBLE
         } else {
             binding.progressCircular.visibility = View.GONE
+        }
+    }
+
+    private fun setTheme() {
+        val pref = SettingPreferences.getInstance(requireActivity().dataStore)
+        val mainViewModel =
+            ViewModelProvider(this, SettingViewModelFactory(pref))[SettingViewModel::class.java]
+        mainViewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
     }
 }

@@ -7,4 +7,5 @@
     <string name="following">%d Following</string>
     <string name="tab_text_followers">Followers</string>
     <string name="tab_text_following">Following</string>
+    <string name="dark_mode">"Dark Mode "</string>
 </resources>
