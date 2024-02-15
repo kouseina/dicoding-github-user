@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kouseina.githubuser.data.database.FavoriteUser
 import com.kouseina.githubuser.databinding.ItemUserBinding
-import com.kouseina.githubuser.ui.favoriteUser.FavoriteUserFragmentDirections
 
 class FavoriteUserAdapter : ListAdapter<FavoriteUser, FavoriteUserAdapter.MyViewHolder>(DIFF_CALLBACK) {
     companion object {

@@ -5,12 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
@@ -20,7 +17,6 @@ import com.kouseina.githubuser.data.response.DetailUserResponse
 import com.kouseina.githubuser.databinding.FragmentDetailUserBinding
 import com.kouseina.githubuser.ui.SectionsPagerAdapter
 import com.kouseina.githubuser.ui.ViewModelFactory
-import com.kouseina.githubuser.ui.followers.FollowersFragment
 
 
 class DetailUserFragment : Fragment() {
