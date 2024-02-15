@@ -54,7 +54,7 @@ class DetailUserViewModel(application: Application) : ViewModel() {
     fun fetchFavoriteUser() {
         favoriteUserRepository.getById(username.value ?: "").observeForever {
             _isUserFavorite.value = it != null
-            println("favorite user get by id : ${it}")
+//            println("favorite user get by id : ${it}")
         }
     }
 
