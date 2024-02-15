@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
-import com.kouseina.githubuser.R
 import com.kouseina.githubuser.data.database.SettingPreferences
 import com.kouseina.githubuser.data.database.dataStore
-import com.kouseina.githubuser.databinding.FragmentFavoriteUserBinding
 import com.kouseina.githubuser.databinding.FragmentSettingBinding
 
 class SettingFragment : Fragment() {

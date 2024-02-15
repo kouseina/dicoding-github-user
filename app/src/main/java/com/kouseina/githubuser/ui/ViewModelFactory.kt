@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.kouseina.githubuser.ui.detailUser.DetailUserViewModel
 import com.kouseina.githubuser.ui.favoriteUser.FavoriteUserViewModel
-import com.kouseina.githubuser.ui.setting.SettingViewModel
 
 class ViewModelFactory private constructor(private val mApplication: Application) : ViewModelProvider.NewInstanceFactory() {
     companion object {

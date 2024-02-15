@@ -1,7 +1,6 @@
 package com.kouseina.githubuser.data.retrofit
 
 import com.kouseina.githubuser.BuildConfig
-import com.kouseina.githubuser.R
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
