@@ -122,8 +122,12 @@ class SearchUserFragment : Fragment() {
         mainViewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                binding.searchBar.menu.clear()
+                binding.searchBar.inflateMenu(R.menu.searchbar_menu_dark)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                binding.searchBar.menu.clear()
+                binding.searchBar.inflateMenu(R.menu.searchbar_menu)
             }
         }
     }
