@@ -44,7 +44,6 @@ class SearchUserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setTheme()
 
-        binding.searchBar.inflateMenu(R.menu.menu)
         binding.searchBar.setOnMenuItemClickListener { menuItem ->
             val navController = findNavController(requireActivity(), R.id.container)
 
